@@ -1,0 +1,23 @@
+<VirtualHost *:80>
+  DocumentRoot /vagrant/public_html
+
+  Alias /vagrant /vagrant
+
+  <DirectoryMatch "/vagrant/public_html/(css|js|img)">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 day"
+  </DirectoryMatch>
+
+        <Directory /vagrant/public_html>
+          DirectoryIndex index.php index.html        
+          Options FollowSymlinks
+          AllowOverride All
+          RewriteEngine on
+        </Directory>
+
+  # Possible values include: debug, info, notice, warn, error, crit,
+  # alert, emerg.
+  LogLevel warn
+  ErrorLog /vagrant/logs/apache2/error.log
+  CustomLog /vagrant/logs/apache2/access.log combined
+</VirtualHost>
