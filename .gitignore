@@ -1,1 +1,3 @@
 sql_loaded
+logs/apache2/*
+.vagrant
